@@ -1,0 +1,4 @@
+:root { font-family: system-ui, sans-serif; color: #17331e; background: #f5f8f4; }
+main { max-width: 42rem; margin: 4rem auto; padding: 1.5rem; background: white; border-radius: 1rem; box-shadow: 0 1rem 3rem #17331e1a; }
+form { display: flex; gap: .75rem; margin: 1.5rem 0; } label { display: grid; gap: .35rem; flex: 1; }
+input, button { font: inherit; padding: .65rem; } button { align-self: end; background: #176c3a; color: white; border: 0; border-radius: .4rem; }

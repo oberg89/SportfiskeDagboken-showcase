@@ -1,44 +1,46 @@
-# SportfiskeDagboken / Angler Log — Technical Showcase
+# SportfiskeDagboken / Angler Log — teknisk showcase
 
-SportfiskeDagboken (Angler Log) is a fishing diary application for recording and analyzing fishing sessions, catches, observations, and environmental conditions.
+[English version](docs/README_EN.md)
 
-> **This repository is a sanitized portfolio/showcase extract of a larger private production project. Some production, security, billing, infrastructure and proprietary implementation details are intentionally omitted.**
+SportfiskeDagboken (Angler Log) är en fiskedagbok för att registrera och analysera fiskepass, fångster, observationer och miljöförhållanden.
 
-## What this repository demonstrates
+> **Det här repot är ett sanerat portfolio-/showcase-utdrag ur ett större privat produktionsprojekt. Vissa delar inom produktion, säkerhet, betalning, infrastruktur och proprietär implementation är medvetet utelämnade.**
 
-- Java 21 and Spring Boot API layering: controller, validation, service, persistence boundary, and API error handling.
-- PostgreSQL/Flyway-oriented data modelling through a deliberately small fishing-session example.
-- TypeScript/Vite frontend organization with an API boundary, a small offline mutation queue, and focused tests.
-- A pragmatic testing approach: backend unit tests, frontend unit tests, and a safe CI build.
-- Product thinking around resilient session capture without publishing production internals.
+## Vad repot visar
 
-The production application is intentionally **not** included here. This is neither a deployment repository nor a complete product clone.
+- Lagerindelning i ett API byggt med Java 21 och Spring Boot: controller, validering, service, persistensgränssnitt och API-felhantering.
+- Datamodellering för PostgreSQL och Flyway genom ett avsiktligt begränsat exempel för fiskepass.
+- Struktur för en frontend med TypeScript och Vite, med API-gränssnitt, en mindre kö för offline-mutationer och fokuserade tester.
+- En pragmatisk teststrategi med enhetstester för backend och frontend samt ett säkert CI-bygge.
+- Produkttänk kring robust registrering av fiskepass utan att publicera intern produktionsimplementation.
 
-## Technology
+Produktionsapplikationen ingår avsiktligt **inte** här. Det här är varken ett deployment-repo eller en fullständig kopia av produkten.
+
+## Teknik
 
 - Java 21, Spring Boot, Spring Validation, Spring Data JPA
-- PostgreSQL and Flyway (represented by a safe sample migration)
-- TypeScript, Vite, Vitest, browser storage APIs
-- Docker is part of the broader private system; no production Docker configuration is published here
+- PostgreSQL och Flyway (representerat av en säker exempelmigrering)
+- TypeScript, Vite, Vitest och API:er för lagring i webbläsaren
+- Docker ingår i det större privata systemet; ingen Docker-konfiguration för produktion publiceras här
 
-The production frontend uses TypeScript and Vite. This showcase mirrors that architecture with a compact, framework-light sample rather than claiming a React implementation.
+Produktionsapplikationens frontend använder TypeScript och Vite. Den här showcase-versionen speglar arkitekturen med ett kompakt och i stort sett ramverksoberoende exempel, utan att göra anspråk på att innehålla en React-implementation.
 
-## Structure
+## Struktur
 
 ```text
-backend/     Spring Boot session API showcase and unit test
-frontend/    TypeScript/Vite UI, API client, offline queue, and unit test
-docs/        Architecture, backend, frontend, offline, and testing notes
-.github/     Safe build-and-test CI only
+backend/     Spring Boot-exempel med sessions-API och enhetstest
+frontend/    TypeScript/Vite-gränssnitt, API-klient, offline-kö och enhetstest
+docs/        Dokumentation om arkitektur, backend, frontend, offline-stöd och testning
+.github/     Endast säker CI för bygge och test
 ```
 
-## My work
+## Mitt arbete
 
-This showcase highlights full-stack engineering practices used in the project: modelling a user-owned domain, designing validation and error contracts, keeping browser/API boundaries explicit, designing for offline recovery, and verifying behavior with focused automated tests. It deliberately avoids claims about team roles, customer data, or the private production deployment.
+Den här showcase-versionen belyser fullstack-principer som används i projektet: modellering av en användarägd domän, utformning av validering och felkontrakt, tydliga gränser mellan webbläsare och API, stöd för återhämtning offline samt verifiering med fokuserade automatiserade tester. Den undviker medvetet påståenden om teamroller, kunddata eller den privata produktionsmiljön.
 
-## Running the showcase
+## Köra showcase-versionen
 
-The modules are intentionally small and independent:
+Modulerna är avsiktligt små och fristående:
 
 ```bash
 cd backend
@@ -52,8 +54,8 @@ npm test
 npm run build
 ```
 
-See [Architecture](docs/ARCHITECTURE.md) for the high-level design and the scope boundaries.
+Se [Arkitektur](docs/ARCHITECTURE.md) för en övergripande beskrivning av designen och avgränsningarna.
 
 ## Status
 
-This is a public portfolio repository for technical review. It is not the production deployment source and does not accept production configuration or customer data.
+Det här är ett publikt portfolio-repo för teknisk granskning. Det innehåller inte produktionskällkoden för deployment och ska inte användas för produktionskonfiguration eller kunddata.

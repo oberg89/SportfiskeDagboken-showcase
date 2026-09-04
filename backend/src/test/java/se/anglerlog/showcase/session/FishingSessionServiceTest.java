@@ -15,7 +15,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class FishingSessionServiceTest {
     @Mock FishingSessionRepository repository;
+    // Den fasta klockan gör domänregelns tidsstämpel reproducerbar utan Spring-context.
     private final Clock clock = Clock.fixed(Instant.parse("2026-01-01T10:00:00Z"), ZoneOffset.UTC);
+    // Testet skyddar hela startflödet: sparad titel, initial status och tid från den injicerade klockan.
     @Test void startsAnActiveSessionForTheOwner() {
         FishingSessionService service = new FishingSessionService(repository, clock);
         when(repository.save(any(FishingSession.class))).thenAnswer(invocation -> invocation.getArgument(0));

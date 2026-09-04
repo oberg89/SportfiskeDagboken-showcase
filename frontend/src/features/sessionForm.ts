@@ -4,6 +4,7 @@ export function renderSessionForm(target: HTMLElement, client: ApiClient): void 
   const form = target.querySelector("form")!; const message = target.querySelector("p")!;
   form.addEventListener("submit", async (event) => { event.preventDefault(); const title = new FormData(form).get("title")?.toString().trim() ?? "";
     try { const session = await client.startSession({ title }); message.textContent = `Session started: ${session.title}`; }
+    // Showcase-formuläret visar fallbacken tydligt; den fullständiga synkroniseringen är avsiktligt utelämnad.
     catch { message.textContent = "Unable to save now. A complete product would queue this mutation for recovery."; }
   });
 }

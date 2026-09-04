@@ -14,10 +14,12 @@ public class FishingSession {
     private String title;
     private Instant startedAt;
     @Enumerated(EnumType.STRING) private SessionStatus status;
+    // JPA behöver en parameterlös konstruktor, men domänobjekt skapas i övrigt via fabriksmetoden nedan.
     protected FishingSession() { }
     private FishingSession(UUID id, String ownerId, String title, Instant startedAt) {
         this.id = id; this.ownerId = ownerId; this.title = title; this.startedAt = startedAt; this.status = SessionStatus.ACTIVE;
     }
+    // Fabriken samlar startregeln: en ny session får identitet direkt och börjar alltid som ACTIVE.
     public static FishingSession start(String ownerId, String title, Instant startedAt) { return new FishingSession(UUID.randomUUID(), ownerId, title, startedAt); }
     public UUID id() { return id; }
     public String title() { return title; }

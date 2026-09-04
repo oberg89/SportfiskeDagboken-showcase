@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FishingSessionController {
     private final FishingSessionService service;
     public FishingSessionController(FishingSessionService service) { this.service = service; }
+    // HTTP-lagret validerar inkommande DTO innan service-lagret får ta över flödet.
     @PostMapping
     public SessionResponse start(@RequestHeader("X-Showcase-Owner") String ownerId, @Valid @RequestBody StartSessionRequest request) {
         return service.start(ownerId, request);

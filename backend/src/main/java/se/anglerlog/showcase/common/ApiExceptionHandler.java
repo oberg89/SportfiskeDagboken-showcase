@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
+    // Ett gemensamt felkontrakt gör att klienten slipper tolka interna exception-typer.
     @ExceptionHandler(ApiException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     Map<String, Object> handle(ApiException exception) {
